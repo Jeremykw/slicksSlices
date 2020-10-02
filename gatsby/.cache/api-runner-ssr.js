@@ -1,4 +1,10 @@
 var plugins = [{
+      plugin: require('/Users/jeremybissonnette/dev/slicksSlices/gatsby/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
+      options: {"plugins":[]},
+    },{
+      plugin: require('/Users/jeremybissonnette/dev/slicksSlices/gatsby/node_modules/gatsby-source-sanity/gatsby-ssr'),
+      options: {"plugins":[],"projectId":"lotmn8s4","dataset":"production","watchMode":true,"token":"skFnMGKr561Ye1xFEZdoXUEoWMHQt4zm36FObsV8cjS5ChQC3ZTV4sZOlbCqg0dyfxs7bTyzJ7IBeRBlUGtEnXz2LHJBKQtAup09pkqLN9eDyMf5g6x7uoQGqKunOLBSjFUFJ1wnNOvPqBJeJyjQXzHuVVosDwxmCkMh0Fvj9fUFyKSbOXFk"},
+    },{
       plugin: require('/Users/jeremybissonnette/dev/slicksSlices/gatsby/gatsby-ssr'),
       options: {"plugins":[]},
     }]
