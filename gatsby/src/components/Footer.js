@@ -1,9 +1,5 @@
 import React from 'react';
 
 export default function Footer() {
-  return (
-    <div>
-      <p>&copy; Slick Slices {new Date().getFullYear}</p>
-    </div>
-  );
+  return <p>&copy; Slick Slices {new Date().getFullYear}</p>;
 }
