@@ -39,7 +39,6 @@ export default function Pagination({
   const hasNextPage = currentPage < totalPages;
   const hasPrevPage = currentPage > 1;
   const arr = Array.from({ length: totalPages });
-  console.log('totalCount = ', arr);
   return (
     <PaginationStyles>
       <Link disabled={!hasPrevPage} to={`${base}/${prevPage}`}>

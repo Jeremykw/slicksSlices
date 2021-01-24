@@ -32,7 +32,6 @@ export default function BeersPage({ data }) {
       <BeerGridStyles>
         {beers.map((beer) => {
           const rating = Math.round(beer.rating.average);
-          console.log(beer.name);
           return (
             <SingleBeerStyles key={beer.id}>
               <img src={beer.image} alt={beer.name} />
