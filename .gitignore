@@ -2,3 +2,4 @@ sanity/node_modules
 gatsby/node_modules
 sanity/slick.slices
 gatsby/slick.slices
+.env
