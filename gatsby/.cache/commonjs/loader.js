@@ -410,7 +410,7 @@ class BaseLoader {
   isPageNotFound(rawPath) {
     const pagePath = (0, _findPath.findPath)(rawPath);
     const page = this.pageDb.get(pagePath);
-    return page && page.notFound === true;
+    return !page || page.notFound;
   }
 
   loadAppData(retries = 0) {
