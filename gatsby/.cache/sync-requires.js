@@ -12,6 +12,7 @@ exports.components = {
   "component---src-pages-orders-js": (preferDefault(require("/Users/jeremybissonnette/dev/slicksSlices/gatsby/src/pages/orders.js"))),
   "component---src-pages-pizzas-js": (preferDefault(require("/Users/jeremybissonnette/dev/slicksSlices/gatsby/src/pages/pizzas.js"))),
   "component---src-pages-slicemasters-js": (preferDefault(require("/Users/jeremybissonnette/dev/slicksSlices/gatsby/src/pages/slicemasters.js"))),
-  "component---src-templates-pizza-js": (preferDefault(require("/Users/jeremybissonnette/dev/slicksSlices/gatsby/src/templates/Pizza.js")))
+  "component---src-templates-pizza-js": (preferDefault(require("/Users/jeremybissonnette/dev/slicksSlices/gatsby/src/templates/Pizza.js"))),
+  "component---src-templates-slicemaster-js": (preferDefault(require("/Users/jeremybissonnette/dev/slicksSlices/gatsby/src/templates/Slicemaster.js")))
 }
 

@@ -1,4 +1,4 @@
-import path from 'path';
+import path, { resolve } from 'path';
 import fetch from 'isomorphic-fetch';
 
 async function turnPizzasIntoPages({ graphql, actions }) {
@@ -85,11 +85,11 @@ async function fetchBeersAndTurnIntoNodes({
   });
 }
 
-async function turnSliceMastersIntoPages({ graphql, actions }) {
-  // 1. Query all slicemaster
+async function turnSlicemastersIntoPages({ graphql, actions }) {
+  // 1. Query all slicemasters
   const { data } = await graphql(`
     query {
-      sliceMasters: allSanityPerson {
+      slicemasters: allSanityPerson {
         totalCount
         nodes {
           name
@@ -102,22 +102,33 @@ async function turnSliceMastersIntoPages({ graphql, actions }) {
     }
   `);
   // 2. Turn each slicemaster into their own page (TODO)
-  // 3. Figure out how many pages based on how many
+  data.slicemasters.nodes.forEach((slicemaster) => {
+    actions.createPage({
+      component: resolve('./src/templates/Slicemaster.js'),
+      path: `/slicemaster/${slicemaster.slug.current}`,
+      context: {
+        name: slicemaster.person,
+        slug: slicemaster.slug.current,
+      },
+    });
+  });
+
+  // 3. Figure out how many pages there are based on how many slicemasters there are, and how many per page!
   const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE);
-  const pageCount = Math.ceil(data.sliceMasters.totalCount / pageSize);
-  // slicesmasters there are, and how many per page!
-  // 4. Loop from 1-n and create pages for them
-  for (let i = 0; i < pageCount; i++) {
+  const pageCount = Math.ceil(data.slicemasters.totalCount / pageSize);
+  // 4. Loop from 1 to n and create the pages for them
+  Array.from({ length: pageCount }).forEach((_, i) => {
     actions.createPage({
       path: `/slicemasters/${i + 1}`,
       component: path.resolve('./src/pages/slicemasters.js'),
+      // This data is pass to the template when we create it
       context: {
         skip: i * pageSize,
         currentPage: i + 1,
         pageSize,
       },
     });
-  }
+  });
 }
 
 export async function sourceNodes(params) {
@@ -132,7 +143,7 @@ export async function createPages(params) {
   await Promise.all([
     turnPizzasIntoPages(params),
     turnToppingsIntoPages(params),
-    turnSliceMastersIntoPages(params),
+    turnSlicemastersIntoPages(params),
   ]);
   // 2. Toppings
   // . SliceMasters
