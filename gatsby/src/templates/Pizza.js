@@ -16,7 +16,6 @@ export default function SinglePizzaPage({ data }) {
     <>
       <SEO title={pizza.name} image={pizza.image?.asset?.fluid?.src} />
       <PizzaGrid>
-        helmet
         <Img fluid={pizza.image.asset.fluid} />
         <div>
           <h2 className="mark">
