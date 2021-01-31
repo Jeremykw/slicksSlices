@@ -31,10 +31,7 @@
         {
           "name": "/Users/jeremybissonnette/dev/slicksSlices/gatsby/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
-            "plugins": [],
-            "allExtensions": false,
-            "isTSX": false,
-            "jsxPragma": "React"
+            "plugins": []
           }
         }
       ],
@@ -74,10 +71,7 @@
         {
           "name": "/Users/jeremybissonnette/dev/slicksSlices/gatsby/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
-            "plugins": [],
-            "allExtensions": false,
-            "isTSX": false,
-            "jsxPragma": "React"
+            "plugins": []
           }
         }
       ],
@@ -117,10 +111,7 @@
         {
           "name": "/Users/jeremybissonnette/dev/slicksSlices/gatsby/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
-            "plugins": [],
-            "allExtensions": false,
-            "isTSX": false,
-            "jsxPragma": "React"
+            "plugins": []
           }
         }
       ],
@@ -160,10 +151,7 @@
         {
           "name": "/Users/jeremybissonnette/dev/slicksSlices/gatsby/node_modules/@babel/preset-typescript/lib/index.js",
           "options": {
-            "plugins": [],
-            "allExtensions": false,
-            "isTSX": false,
-            "jsxPragma": "React"
+            "plugins": []
           }
         }
       ],
