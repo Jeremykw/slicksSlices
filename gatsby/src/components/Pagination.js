@@ -1,5 +1,5 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const PaginationStyles = styled.div`
@@ -15,6 +15,7 @@ const PaginationStyles = styled.div`
     padding: 1rem;
     flex: 1;
     border-right: 1px solid var(--grey);
+    text-decoration: none;
     &[aria-current],
     &.current {
       color: var(--red);
@@ -23,6 +24,12 @@ const PaginationStyles = styled.div`
       pointer-events: none;
       color: var(--grey);
     }
+  }
+  @media (max-width: 800px) {
+    .word {
+      display: none;
+    }
+    font-size: 1.4rem;
   }
 `;
 
@@ -33,28 +40,36 @@ export default function Pagination({
   skip,
   base,
 }) {
+  // make some variables
   const totalPages = Math.ceil(totalCount / pageSize);
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
-  const hasNextPage = currentPage < totalPages;
-  const hasPrevPage = currentPage > 1;
-  const arr = Array.from({ length: totalPages });
+  const hasNextPage = nextPage <= totalPages;
+  const hasPrevPage = prevPage >= 1;
   return (
     <PaginationStyles>
-      <Link disabled={!hasPrevPage} to={`${base}/${prevPage}`}>
-        ← Prev
+      <Link
+        title="Prev Page"
+        disabled={!hasPrevPage}
+        to={`${base}/${prevPage}`}
+      >
+        ← <span className="word">Prev</span>
       </Link>
-      {arr.map((_, i) => (
+      {Array.from({ length: totalPages }).map((_, i) => (
         <Link
-          key={i}
           className={currentPage === 1 && i === 0 ? 'current' : ''}
           to={`${base}/${i > 0 ? i + 1 : ''}`}
+          key={`page${i}`}
         >
           {i + 1}
         </Link>
       ))}
-      <Link disabled={!hasNextPage} to={`${base}/${nextPage}`}>
-        Next →
+      <Link
+        title="Next Page"
+        disabled={!hasNextPage}
+        to={`${base}/${nextPage}`}
+      >
+        <span className="word">Next</span> →
       </Link>
     </PaginationStyles>
   );
